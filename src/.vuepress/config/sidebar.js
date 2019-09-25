@@ -1,12 +1,14 @@
 module.exports = [
-	'/',
-	{
-		title: 'Guides',
-		path: '/help/guides/',
-		sidebarDepth: 2,
-		children: [
+
+	'/help/guides/': getGuidesSidebar('Guides', 'Settings', 'Frequently Asked Questions', 'Contribution', 'Available extensions'),
+	'/help/faq/': getFaqSidebar('Frequently Asked Questions', 'Guides', 'Contribution', 'Available extensions'),
+	'/help/contribution': getContributionSidebar('Contribution', 'Frequently Asked Questions', 'Guides', 'Available extensions'),
+	'/extensions': getExtensionsSidebar('Available extensions', 'Frequently Asked Questions', 'Guides', 'Contribution'),
+
+	function getGuidesSidebar (groupA, groupB, groupC, groupD, groupE) {
+		return [
 			{
-				title: 'Regular',
+				title: groupA,
 				collapsable: false,
 				sidebarDepth: 2,
 				children: [
@@ -19,7 +21,7 @@ module.exports = [
 				]
 			},
 			{
-				title: 'Settings',
+				title: groupB,
 				collapsable: false,
 				sidebarDepth: 2,
 				children: [
@@ -28,34 +30,95 @@ module.exports = [
 					'/help/guides/downloads',
 					'/help/guides/tracking',
 					'/help/guides/backup',
-					'/help/guides/advanced'
+					'/help/guides/advanced',
 				]
+			},
+			{
+				title: groupC,
+				path: '/help/faq/application',
+			},
+			{
+				title: groupD,
+				path: '/help/contribution'
+			},
+			{
+				title: groupE,
+				path: '/extensions/'
 			}
 		]
-	},
-	{
-		title: 'Frequently Asked Questions',
-		path: '/help/faq/',
-		sidebarDepth: 2,
-		children: [
+	}
+
+	function getFaqSidebar (groupF, groupG, groupH, groupI) {
+		return [
 			{
-				title: 'Regular',
+				title: groupF,
 				collapsable: false,
-				sidebarDepth: 2,
+				sidebarDepth: 1,
 				children: [
 					'/help/faq/application',
 					'/help/faq/extensions'
 				]
 			},
 			{
-				title: 'Contribution',
-				collapsable: false,
-				sidebarDepth: 2,
-				children: [
-					'/help/faq/how-can-i-help'
-				]
+				title: groupG,
+				path: '/help/guides/getting-started',
+			},
+			{
+				title: groupH,
+				path: '/help/contribution'
+			},
+			{
+				title: groupI,
+				path: '/extensions/'
 			}
 		]
-	},
-	'/extensions/'
+	}
+
+	function getContributionSidebar (groupJ, groupK, groupL, groupM) {
+		return [
+			{
+				title: groupJ,
+				collapsable: false,
+				sidebarDepth: 1,
+				children: [
+					'/help/contribution'
+				]
+			},
+			{
+				title: groupK,
+				path: '/help/faq/application',
+			},
+			{
+				title: groupL,
+				path: '/help/guides/getting-started',
+			},
+			{
+				title: groupM,
+				path: '/extensions/'
+			}
+		]
+	}
+
+	function getExtensionsSidebar (groupN, groupO, groupP, groupQ) {
+		return [
+			{
+				title: groupN,
+				path: '/extensions/'
+			},
+			{
+				title: groupO,
+				path: '/help/faq/application',
+			},
+			{
+				title: groupP,
+				path: '/help/guides/getting-started',
+			},
+			{
+				title: groupQ,
+				path: '/help/contribution'
+			}
+		]
+	}
+
+
 ];
