@@ -75,7 +75,7 @@ function getFaqSidebar (groupF, groupG, groupH, groupI) {
 		{
 			title: groupF,
 			collapsable: false,
-			sidebarDepth: 1,
+			sidebarDepth: 2,
 			children: [
 				'/help/faq/application',
 				'/help/faq/extensions'
